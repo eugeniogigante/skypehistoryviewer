@@ -1,13 +1,8 @@
 package skypehistoryviewer.storage;
 import java.sql.*;
 public class SQLiteJDBC {
-	private String path;
 	
-	public void setPath(String path){
-		this.path=path;
-	}
-	
-	public Connection getConnection(){
+	public Connection getConnection(String path){
 	    Connection c = null;
 	    try {
 	      Class.forName("org.sqlite.JDBC");

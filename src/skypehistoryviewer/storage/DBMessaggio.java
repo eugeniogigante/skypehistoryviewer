@@ -13,9 +13,10 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+
 /**
  * 
- * @author Michele Roviello
+ * @author Eugenio Gigante
  *
  */
 public class DBMessaggio {
@@ -23,15 +24,13 @@ public class DBMessaggio {
 	private Connection conn;
 	private String query;
 	private PreparedStatement st;
+	private String path="C://Users//eugenio.gigante//AppData//Roaming//Skype//eugenio-gigante//main.db";
 	
 	/**
-	 * Costruttore vuoto della classe DBUtente
+	 * Costruttore vuoto della classe DBMessaggio
 	 */
 	public DBMessaggio(){ }
 	
-	
-	
-
 	
 	//METODI DI VISUALIZZAZIONE
 	/**
@@ -42,7 +41,7 @@ public class DBMessaggio {
 	public List<Messaggio> visualizzaMessaggi() throws SQLException{
 		
 		try{
-			conn = DBConnectionPool.getConnection();
+			conn =new  SQLiteJDBC().getConnection(this.path);//DBConnectionPool.getConnection();
 			
 			query = "SELECT * FROM "+DBNames.TABLE_MESSAGES;
 			st = conn.prepareStatement(query);
@@ -54,15 +53,11 @@ public class DBMessaggio {
 			e.printStackTrace();
 		}finally{
 			st.close();
-			DBConnectionPool.releaseConnection(conn);
+			//DBConnectionPool.releaseConnection(conn);
 		}
 		return null;
 		
 	}
-	
-	
-	
-
 	
 	
 	// METODI DI SUPPORTO PER LA CLASSE
@@ -94,7 +89,7 @@ public class DBMessaggio {
 	 */
 	private boolean update() throws SQLException {
 		try{
-			conn = DBConnectionPool.getConnection();
+			conn = new  SQLiteJDBC().getConnection(this.path);//DBConnectionPool.getConnection();
 			st = conn.prepareStatement(query);
 			
 			if(st.executeUpdate() > 0){
@@ -105,7 +100,7 @@ public class DBMessaggio {
 			e.printStackTrace();
 		}finally{
 			st.close();
-			DBConnectionPool.releaseConnection(conn);
+			//DBConnectionPool.releaseConnection(conn);
 		}
 		return false;
 	}

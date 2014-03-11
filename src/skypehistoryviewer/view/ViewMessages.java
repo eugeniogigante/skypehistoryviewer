@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.TableModel;
 
 import skypehistoryviewer.entity.Messaggio;
 import skypehistoryviewer.storage.DBMessaggio;
@@ -18,34 +19,38 @@ import java.util.List;
 public class ViewMessages extends JPanel{
 	private boolean DEBUG = false;
 	private DBMessaggio dbMessaggio=new DBMessaggio();
+	
 	 
     public ViewMessages() throws SQLException {
         super(new GridLayout(1,0));
         String[] columnNames = {"timestamp","Author","chatname","body_xml"};
         
         List<Messaggio> messaggi=dbMessaggio.visualizzaMessaggi();
-        for(int k=0; k<=messaggi.size(); k++){
-        	Messaggio tempMessaggio=messaggi.get(k);
-        	Object[][] data = {
-        	        {tempMessaggio.getData(), tempMessaggio.getMittente(), tempMessaggio.getMittente(), tempMessaggio.getTesto()}
-        	        };
-            final JTable table = new JTable(data, columnNames);
-            table.setPreferredScrollableViewportSize(new Dimension(500, 70));
-            table.setFillsViewportHeight(true);
-            if (DEBUG) {
-                table.addMouseListener(new MouseAdapter() {
-                    public void mouseClicked(MouseEvent e) {
-                        printDebugData(table);
-                    }
-                });
-            }
-     
-            //Create the scroll pane and add the table to it.
-            JScrollPane scrollPane = new JScrollPane(table);
-     
-            //Add the scroll pane to this panel.
-            add(scrollPane);
-        }
+       // for(int k=0; k<=messaggi.size(); k++){
+        	//Messaggio tempMessaggio=messaggi.get(0);
+        	TableModel dataModel= new VectorTableModel(messaggi);
+        	//Object[][] data ={
+        	//       {tempMessaggio.getData(), tempMessaggio.getMittente(), tempMessaggio.getMittente(), tempMessaggio.getTesto()}
+        	//        };
+        	 final JTable table = new JTable(dataModel);
+             table.setPreferredScrollableViewportSize(new Dimension(500, 70));
+             table.setFillsViewportHeight(true);
+             if (DEBUG) {
+                 table.addMouseListener(new MouseAdapter() {
+                     public void mouseClicked(MouseEvent e) {
+                         printDebugData(table);
+                     }
+                 });
+             }
+      
+             //Create the scroll pane and add the table to it.
+             JScrollPane scrollPane = new JScrollPane(table);
+      
+             //Add the scroll pane to this panel.
+             add(scrollPane);
+
+       // }
+       
 
     }
  
