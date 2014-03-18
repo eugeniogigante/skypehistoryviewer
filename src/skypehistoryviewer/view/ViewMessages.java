@@ -23,7 +23,7 @@ public class ViewMessages extends JPanel{
 	 
     public ViewMessages() throws SQLException {
         super(new GridLayout(1,0));
-        String[] columnNames = {"timestamp","Author","chatname","body_xml"};
+        //String[] columnNames = {"timestamp","Author","chatname","body_xml"};
         
         List<Messaggio> messaggi=dbMessaggio.visualizzaMessaggi();
        // for(int k=0; k<=messaggi.size(); k++){
@@ -33,7 +33,7 @@ public class ViewMessages extends JPanel{
         	//       {tempMessaggio.getData(), tempMessaggio.getMittente(), tempMessaggio.getMittente(), tempMessaggio.getTesto()}
         	//        };
         	 final JTable table = new JTable(dataModel);
-             table.setPreferredScrollableViewportSize(new Dimension(500, 70));
+             table.setPreferredScrollableViewportSize(new Dimension(700, 700));
              table.setFillsViewportHeight(true);
              if (DEBUG) {
                  table.addMouseListener(new MouseAdapter() {
