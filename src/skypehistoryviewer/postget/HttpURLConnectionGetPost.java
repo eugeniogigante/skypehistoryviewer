@@ -31,7 +31,7 @@ public class HttpURLConnectionGetPost {
 	// HTTP GET request
 		private void sendGet() throws Exception {
 	 
-			String url = "http://egigante.altervista.org/phpgettest.php?testo=mkyong";
+			String url = "http://egigante.altervista.org/phpgettest.php?destinatario=ggg&testo=mkyong&mittente=eugenio";
 	 
 			URL obj = new URL(url);
 			HttpURLConnection con = (HttpURLConnection) obj.openConnection();
