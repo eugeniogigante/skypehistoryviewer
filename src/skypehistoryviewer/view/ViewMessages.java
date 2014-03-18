@@ -7,6 +7,7 @@ import javax.swing.JTable;
 import javax.swing.table.TableModel;
 
 import skypehistoryviewer.entity.Messaggio;
+import skypehistoryviewer.gestionefile.GestioneFile;
 import skypehistoryviewer.storage.DBMessaggio;
 
 import java.awt.Dimension;
@@ -28,6 +29,7 @@ public class ViewMessages extends JPanel{
         List<Messaggio> messaggi=dbMessaggio.visualizzaMessaggi();
        // for(int k=0; k<=messaggi.size(); k++){
         	//Messaggio tempMessaggio=messaggi.get(0);
+        GestioneFile gestioneFile= new GestioneFile(messaggi);
         	TableModel dataModel= new VectorTableModel(messaggi);
         	//Object[][] data ={
         	//       {tempMessaggio.getData(), tempMessaggio.getMittente(), tempMessaggio.getMittente(), tempMessaggio.getTesto()}

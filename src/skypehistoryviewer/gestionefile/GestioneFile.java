@@ -11,12 +11,14 @@ import skypehistoryviewer.entity.Messaggio;
 
 public class GestioneFile {
 	public GestioneFile(List v){
-	String text = "Hello world";
-	Messaggio b =(Messaggio) v.get(row);
 	try {
       File file = new File("example.txt");
       BufferedWriter output = new BufferedWriter(new FileWriter(file));
-      output.write(text);
+      for (int k=0; k<=v.size(); k++){
+  		Messaggio b =(Messaggio) v.get(0);
+  		output.write(b.getData()+b.getDestinatario()+b.getMittente()+b.getTesto());
+  	}
+      
       output.close();
     } catch ( IOException e ) {
        e.printStackTrace();
