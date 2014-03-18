@@ -24,13 +24,8 @@ public class GestioneFile {
       while ( itr.hasNext() ) {
     	  b =(Messaggio) itr.next() ;
     	  output.write(b.getData()+";"+b.getDestinatario()+";"+b.getMittente()+";"+b.getTesto());
-          //System.out.print( "  " + b.getTesto() ); 
-      //System.out.println( "]" );
-      }
-    	  
-      //-----------------------------------------------------------
-
-      
+      } 	  
+      //-----------------------------------------------------------     
       output.close();
     } catch ( IOException e ) {
        e.printStackTrace();
