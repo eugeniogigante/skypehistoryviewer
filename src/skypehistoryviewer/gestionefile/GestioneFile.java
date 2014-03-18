@@ -15,31 +15,25 @@ import skypehistoryviewer.entity.Messaggio;
 
 public class GestioneFile {
 	public GestioneFile(List v){
+		Messaggio b =null;
 	try {
       File file = new File("E://example.txt");
       BufferedWriter output = new BufferedWriter(new FileWriter(file));
       //------------------------------------------------------------
-      
+      Iterator itr = (Iterator) v.iterator();
+      while ( itr.hasNext() ) {
+    	  b =(Messaggio) itr.next() ;
+    	  output.write(b.getData()+";"+b.getDestinatario()+";"+b.getMittente()+";"+b.getTesto());
+          //System.out.print( "  " + b.getTesto() ); 
+      //System.out.println( "]" );
+      }
+    	  
       //-----------------------------------------------------------
-      
-      
-      
-      
-      for (int k=0; k<=v.size(); k++){
-  		Messaggio b =(Messaggio) v.get(0);
-  		output.write(b.getData()+b.getDestinatario()+b.getMittente()+b.getTesto());
-  	}
+
       
       output.close();
     } catch ( IOException e ) {
        e.printStackTrace();
     }
 	}
-	public static void printList(List lst){
-        System.out.print( "[" );
-        Iterator itr = (Iterator) lst.iterator();
-        while ( itr.hasNext() ) 
-            System.out.print( "  " + itr.next() ); 
-        System.out.println( "]" ); 
-    }
 }
