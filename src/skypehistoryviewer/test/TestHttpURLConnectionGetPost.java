@@ -19,8 +19,14 @@ public class TestHttpURLConnectionGetPost {
 		Iterator itr = (Iterator) messaggi.iterator();
 	      while ( itr.hasNext() ) {
 	    	  b =(Messaggio) itr.next() ;
-	    	  queryString=("http://egigante.altervista.org/phpgettest.php?destinatario="+b.getDestinatario()+"&testo="+b.getTesto()+"&mittente="+b.getMittente());
-	    	  queryString.replaceAll("\\s+","");
+	    	  String queryStringHead="http://egigante.altervista.org/phpgettest.php?";
+	    	  queryString="destinatario="+b.getDestinatario()+"&testo="+b.getTesto()+"&mittente="+b.getMittente();
+	    	  queryString.replaceAll("\\s",""); 
+	    	  //replaceAll("[^\\w]", "");
+	    	  //queryString.replaceAll("[^\\w]","");
+	    	  //queryString.replaceAll("[#]","");
+	    	  //queryString.replaceAll("[$]","");
+	    	  queryString=queryStringHead+queryString;
 	    	  httpURLConnectionGetPost.sendGet(queryString);
 	      }
 		
