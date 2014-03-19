@@ -25,11 +25,14 @@ public class HttpURLConnectionGetPost {
  
 	}
 	 */
+	public HttpURLConnectionGetPost(){
+		
+	}
 
 	private final String USER_AGENT = "Mozilla/5.0";
 
 	// HTTP GET request
-		private void sendGet() throws Exception {
+		public void sendGet(String queryString) throws Exception {
 	 
 			String url = "http://egigante.altervista.org/phpgettest.php?destinatario=ggg&testo=mkyong&mittente=eugenio";
 	 
@@ -62,7 +65,7 @@ public class HttpURLConnectionGetPost {
 		}
 	 
 		// HTTP POST request
-		private void sendPost() throws Exception {
+		public void sendPost() throws Exception {
 	 
 			String url = "https://selfsolve.apple.com/wcResults.do";
 			URL obj = new URL(url);
