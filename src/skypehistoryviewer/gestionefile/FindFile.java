@@ -6,6 +6,7 @@ class FindFile
 {
     public void findFile(String name,File file)
     {
+    	ArrayList<String> directory=new ArrayList();
         File[] list = file.listFiles();
         if(list!=null)
         for (File fil : list)
@@ -16,7 +17,8 @@ class FindFile
             }
             else if (name.equalsIgnoreCase(fil.getName()))
             {
-                System.out.println(fil.getParentFile());
+                System.out.println(fil.getParentFile().toString());
+                directory.add(fil.getParentFile().toString());
             }
         }
     }

@@ -5,8 +5,12 @@ import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
+
+import skypehistoryviewer.entity.Messaggio;
 
 
 
@@ -33,9 +37,11 @@ public class HttpURLConnectionGetPost {
 
 	// HTTP GET request
 		public void sendGet(String queryString) throws Exception {
-	 
-			String url = "http://egigante.altervista.org/phpgettest.php?destinatario=ggg&testo=mkyong&mittente=eugenio";
-	 
+			//----------------------------------------------------
+			
+			//----------------------------------------------------
+			//String url = "http://egigante.altervista.org/phpgettest.php?destinatario=ggg&testo=mkyong&mittente=eugenio";
+			String url =queryString;
 			URL obj = new URL(url);
 			HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 	 
