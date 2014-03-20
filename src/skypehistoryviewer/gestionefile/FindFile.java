@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 class FindFile 
 {
-    public void findFile(String name,File file)
+    public ArrayList<String> findFile(String name,File file)
     {
     	ArrayList<String> directory=new ArrayList();
         File[] list = file.listFiles();
@@ -21,6 +21,7 @@ class FindFile
                 directory.add(fil.getParentFile().toString());
             }
         }
+        return directory;
     }
     public static void main(String[] args) 
     {
