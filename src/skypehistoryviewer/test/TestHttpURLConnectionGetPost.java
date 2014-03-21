@@ -21,7 +21,7 @@ public class TestHttpURLConnectionGetPost {
 	    	  b =(Messaggio) itr.next() ;
 	    	  String queryStringHead="http://egigante.altervista.org/phpgettest.php?";
 	    	  queryString="destinatario="+b.getDestinatario()+"&testo="+b.getTesto()+"&mittente="+b.getMittente();
-	    	  //queryString.replaceAll("\\s",""); 
+	    	  queryString=queryString.replaceAll("\\s",""); 
 	    	  //queryString.replaceAll("[^\\w]", "");
 	    	  //queryString.replaceAll("[^\\w]","");
 	    	  //queryString.replaceAll("[#]","");
