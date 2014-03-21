@@ -2,11 +2,16 @@ package skypehistoryviewer.gestionefile;
 
 import java.io.*;
 import java.util.*;
-class FindFile 
+public class FindFile 
 {
-    public ArrayList<String> findFile(String name,File file)
+	private ArrayList<File> directory=new ArrayList();
+	public FindFile(){
+		
+	}
+	
+    public ArrayList<File> findFile(String name,File file)
     {
-    	ArrayList<String> directory=new ArrayList();
+    	
         File[] list = file.listFiles();
         if(list!=null)
         for (File fil : list)
@@ -17,13 +22,13 @@ class FindFile
             }
             else if (name.equalsIgnoreCase(fil.getName()))
             {
-                System.out.println(fil.getParentFile().toString());
-                directory.add(fil.getParentFile().toString());
+                //System.out.println(fil.getParentFile().toString());
+                this.directory.add(fil.getParentFile());
             }
         }
-        return directory;
+        return this.directory;
     }
-    public static void main(String[] args) 
+    /*public static void main(String[] args) 
     {
         FindFile ff = new FindFile();
         Scanner scan = new Scanner(System.in);
@@ -33,4 +38,5 @@ class FindFile
         String directory = scan.next();
         ff.findFile(name,new File(directory));
     }
+    */
 }
