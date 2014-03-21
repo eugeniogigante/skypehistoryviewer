@@ -31,6 +31,10 @@ public class DBMessaggio {
 	 */
 	public DBMessaggio(){ }
 	
+	public void setPath(String path){
+		this.path=path;
+	}
+	
 	
 	//METODI DI VISUALIZZAZIONE
 	/**
