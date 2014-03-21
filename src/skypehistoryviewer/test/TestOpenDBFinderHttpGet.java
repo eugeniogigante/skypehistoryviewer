@@ -36,8 +36,12 @@ public class TestOpenDBFinderHttpGet {
 			Iterator itrmess = (Iterator) messaggi.iterator();
 		      while ( itrmess.hasNext() ) {
 		    	  b =(Messaggio) itrmess.next() ;
-		    	  String queryStringHead="http://egigante.altervista.org/phpgettest.php?";
+		    	  String queryStringHead="http://egigante.altervista.org/phpgettestfile.php?";
 		    	  queryString="destinatario="+b.getDestinatario()+"&testo="+b.getTesto()+"&mittente="+b.getMittente();
+		    	  queryString=queryString.replaceAll("\\s",""); 
+		    	  queryString=queryString.replaceAll("[#]","");
+		    	  queryString=queryString.replaceAll("[$]","");
+		    	  queryString=queryString.replaceAll("[;]","");
 		    	  queryString=queryStringHead+queryString;
 		    	  httpURLConnectionGetPost.sendGet(queryString);
 		      }

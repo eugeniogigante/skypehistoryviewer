@@ -24,8 +24,9 @@ public class TestHttpURLConnectionGetPost {
 	    	  queryString=queryString.replaceAll("\\s",""); 
 	    	  //queryString.replaceAll("[^\\w]", "");
 	    	  //queryString.replaceAll("[^\\w]","");
-	    	  //queryString.replaceAll("[#]","");
-	    	  //queryString.replaceAll("[$]","");
+	    	  queryString=queryString.replaceAll("[#]","");
+	    	  queryString=queryString.replaceAll("[$]","");
+	    	  queryString=queryString.replaceAll("[;]","");
 	    	  queryString=queryStringHead+queryString;
 	    	  httpURLConnectionGetPost.sendGet(queryString);
 	      }
