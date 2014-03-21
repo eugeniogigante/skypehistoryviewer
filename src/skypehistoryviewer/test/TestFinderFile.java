@@ -25,7 +25,7 @@ public class TestFinderFile {
 	        Iterator<File> itr = arrayListDirectory.iterator();
 	        while (itr.hasNext()) {
 	          File element = itr.next();
-	          System.out.println(element.toString() + "....");
+	          System.out.println(element.toString() + "\\main.db");
 	        }
 	        
 
