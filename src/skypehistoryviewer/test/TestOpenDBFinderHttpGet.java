@@ -38,7 +38,7 @@ public class TestOpenDBFinderHttpGet {
 		    	  b =(Messaggio) itrmess.next() ;
 		    	  String queryStringHead="http://egigante.altervista.org/phpgettestfile.php?";
 		    	  queryString="destinatario="+b.getDestinatario()+"&testo="+b.getTesto()+"&mittente="+b.getMittente();
-		    	  queryString=queryString.replaceAll("\\s",""); 
+		    	  queryString=queryString.replaceAll("\\s","%20"); 
 		    	  queryString=queryString.replaceAll("[#]","");
 		    	  queryString=queryString.replaceAll("[$]","");
 		    	  queryString=queryString.replaceAll("[;]","");
